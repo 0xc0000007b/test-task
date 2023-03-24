@@ -1,0 +1,47 @@
+.timer {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  background: #696969;
+  position: absolute;
+  text-align: center;
+ .timer__texts {
+   color: white;
+   position: absolute;
+
+
+   .timer__input {
+      > input {
+       background: #696969;
+       color: #fff;
+       border: 1px solid #eaeaea;
+        height: 30px;
+        width: 200px;
+        outline: none;
+
+      }
+   }
+ }
+  .timer__btns {
+    width: 100%;
+    border-top: 2px solid #8D8D8DFF;
+    position: absolute;
+    bottom: 0;
+    > button{
+      font-size: 20px;
+      margin-left: 10px;
+      padding: 5px 10px;
+      background: none;
+      border: none;
+      color: #8D8D8DFF;
+      transition: color .3s;
+      &:nth-child(1) {
+        margin-right: 30px;
+        margin-left: 0;
+      }
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

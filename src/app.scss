@@ -1,15 +1,40 @@
-.wrapper {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
+@import "assets/vars.scss";
+
+* {
   margin: 0;
   padding: 0;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  background: #E5E5E5;
-
+  box-sizing: border-box;
 }
 
+body {
+  position: relative;
+  background: $bg-page;
+  display: flex;
+  flex-direction: column;
+}
 
-
+.wrapper {
+  text-align: center;
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  left: 30%;
+  .adding-table {
+    z-index: 1;
+    position: absolute;
+    button {
+      width: 200px;
+    padding: 30px;
+      background: $bg-color;
+      color: white;
+    }
+  }
+  .timers {
+    top: 60px;
+    display: flex;
+    position: absolute;
+  li {
+    list-style: none;
+  }
+  }
+}

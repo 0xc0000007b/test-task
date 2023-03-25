@@ -5,7 +5,7 @@
 
           <input @keydown.enter="isShowing=false" v-show="isShowing"  v-model="count" placeholder="input time count">
         </div>
-        <div style="position: absolute" class="timer__rime">
+        <div style="position: absolute" class="timer__time">
             <span style=" left: 90px" @click="isShowing = !isShowing">{{count}}</span>
         </div>
       </div>
@@ -25,23 +25,28 @@
 <script>
 export default {
   name: "main-timer",
+  props: {
+    timer_data: {
+      type: Number,
+    }
+  },
   data() {
     return {
       timerEnabled: false,
-      count:  60,
+      count:  this.timer_data  || 60,
       isShowing: false,
     }
   },
   watch: {
     timerEnabled(value) {
       if (value) {
-        setTimeout(() => this.count--, 1000)
+        setTimeout(() => this.count++, 1000)
       }
     },
     count: {
       handler(value) {
         if (value > 0 && this.timerEnabled) {
-          setTimeout(() => this.count--, 1000)
+          setTimeout(() => this.count++, 1000)
         }
       }
     }
@@ -49,7 +54,7 @@ export default {
 
   methods: {
     stop() {
-      this.count = 60;
+      this.count = 0;
       this.timerEnabled = false;
     }
   }

@@ -1,17 +1,38 @@
 <script>
 
-import {defineComponent} from "vue";
+
+
 import MainTimer from "@/components/timer-main/timer.vue";
 
-export default defineComponent({
-  components: {MainTimer}
-})
+
+export default {
+  components: {MainTimer},
+
+  data() {
+    return {
+      times: [ 0],
+      aaa: null
+    }
+  },
+}
+
 </script>
 
 <template>
-  <div class="wrapper">
-      <main-timer />
+ <div class="wrapper">
+    <div class="timers">
+      <ul >
+        <li v-for="time in times" :key="time">
+          <MainTimer v-bind:timer_data="time"></MainTimer>
+        </li>
+      </ul>
+    </div>
+  <div class="adding-table">
+
+
+    <button @click="times.push(0)">+</button>
   </div>
+ </div>
 </template>
 
 <style lang="scss">
